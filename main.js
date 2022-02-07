@@ -36,6 +36,7 @@ let account = new Proxy(accountValues, {
 let requestId;
 
 let board = new Board(ctx, ctxNext);
+
 document.addEventListener('keydown', event => {
     if (moves[event.keyCode]) {
         event.preventDefault();
@@ -92,18 +93,7 @@ function animate(now = 0) {
         }
     }
 
-
-
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    if (account.combo > 0) {
-
-        ctx.fillStyle = 'blue';
-        ctx.fillRect(1, 3, 8, 1.2);
-        ctx.font = '1px Arial';
-        ctx.fillStyle = 'red';
-        ctx.fillText('COMBO!!!', 1.8, 4);
-        account.combo -= 10
-    }
 
     board.draw();
     window.requestAnimationFrame(animate);
