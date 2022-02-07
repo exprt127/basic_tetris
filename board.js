@@ -107,8 +107,16 @@ class Board {
         });
     }
 
-    // drawBoard() {this.grid.forEach((row, y) => {row.forEach((value, x) => {if (value > 0) {this.ctx.fillStyle = COLORS[value];this.ctx.fillRect(x, y, 1, 1);}})})}
-    drawBoard() {this.grid.forEach((row, y) => {row.forEach((value, x) => {if (value > 0) {this.ctx.fillstyle = COLORS[value];this.ctx.fillRect(x, y, 1, 1);}})})}
+    drawBoard() {
+        this.grid.forEach((row, y) => {
+            row.forEach((value, x) => {
+                if (value > 0) {
+                    this.ctx.fillStyle = COLORS[value];
+                    this.ctx.fillRect(x, y, 1, 1);
+                }
+            })
+        })
+    }
 
     getEmptyGrid() {
         return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
